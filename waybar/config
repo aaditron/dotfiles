@@ -1,0 +1,103 @@
+{
+    "position": "top",
+    "modules-left": ["sway/workspaces", "custom/firefox", "custom/fileman", "custom/vm", "sway/mode", "custom/rightend"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["custom/leftend", "idle_inhibitor", "custom/spacer", "custom/logout", "custom/spacer", "pulseaudio", "custom/spacer", "network", "custom/spacer", "backlight","custom/keyboard",  "clock"],
+
+    "custom/spacer": {
+        "format": " ",
+        "tooltip":false
+    },
+    "custom/leftend": {
+        "format": " ",
+        "tooltip":false
+    },
+    "custom/rightend": {
+        "format": " ",
+        "tooltip":false
+    },
+    "custom/firefox": {
+         "format": "",
+         "on-click": "chromium --ozone-platform=wayland",
+         "tooltip": false,
+         "icon-size": 32
+    },
+    "custom/fileman": {
+         "format": "",
+         "on-click": "thunar",
+         "tooltip": false,
+         "icon-size": 32
+    },
+    "custom/vm": {
+         "format": "",
+         "on-click": "foot",
+         "tooltip": "Terminal",
+         "icon-size": 32
+    },
+    "custom/logout": {
+         "format": "",
+         "on-click": "wlogout",
+         "tooltip": false,
+         "icon-size": 32
+    },
+
+    "sway/mode": {
+        "format": "{}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip":true,
+        "tooltip-format": "{:%Y-%m-%d}"
+        
+    },
+    "backlight": {
+        "device": "acpi_video0",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""]
+    },
+
+    "network": {
+        
+        "format-wifi": " WiFi ({signalStrength}%)",
+        "tooltip":true,
+        "tooltip-format": "{essid}",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "on-click":"wifimenu"
+},
+
+    
+    "pulseaudio": {
+        
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        
+        "format-muted": " MUTE",
+        "format-source": "{volume}% ",
+        "format-source-muted": "MUTE",
+        "format-icons": {
+
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click":"pulseaudio set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle",
+        "on-click-right": "pavucontrol"
+    }
+
+},
+
+
