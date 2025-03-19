@@ -3,9 +3,9 @@ const bookmarks = [
   {
     title: "Daily",
     links: [
+      { name: "Youtube", url: "https://youtube.com" },
       { name: "GitHub", url: "https://github.com" },
       { name: "Gmail", url: "https://inbox.google.com" },
-      { name: "Youtube", url: "https://youtube.com" },
       { name: "Drive", url: "https://drive.google.com" },
     ],
   },

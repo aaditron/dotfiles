@@ -4,7 +4,7 @@ const searchUrl = "https://google.com/search?q=";
 document.getElementById("search-field").addEventListener("keypress", function (e) {
   if (e.keyCode == 13) {
     var val = document.getElementById("search-field").value;
-    window.location.href = searchUrl + val;
+    window.open(searchUrl + val);
   }
 });
 
@@ -28,22 +28,6 @@ function getTime() {
 
 // Handle writing out Bookmarks
 function setupBookmarks() {
-  const bookmarkContainer = document.getElementById("bookmark-container");
-  bookmarkContainer.innerHTML = bookmarks
-    .map((b) => {
-      const html = ["<div class='bookmark-set'>"];
-      html.push(`<div class="bookmark-title">${b.title}</div>`);
-      html.push('<div class="bookmark-inner-container">');
-      html.push(
-        ...b.links.map(
-          (l) =>
-            `<a class="bookmark" href="${l.url}">${l.name}</a>`
-        )
-      );
-      html.push("</div></div>");
-      return html.join("");
-    })
-    .join("");
 }
 
 window.onload = () => {
