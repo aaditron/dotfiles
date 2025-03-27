@@ -1,0 +1,66 @@
+#!/bin/bash
+while true; do
+# Open wofi to get the search query
+query=$(echo "Search..." | wofi --dmenu -p "Search YouTube:")
+
+# Exit if no query is provided (empty string)
+if [ -z "$query" ]; then
+    echo "Exiting: No search query provided."
+    exit 0
+fi
+
+# Sanitize the query
+query=$(sed \
+    -e 's|+|%2B|g' \
+    -e 's|#|%23|g' \
+    -e 's|&|%26|g' \
+    -e 's| |+|g' \
+    <<< "$query")
+
+# Fetch search results from YouTube
+response=$(curl -s "https://www.youtube.com/results?search_query=$query")
+
+# Extract video and playlist IDs and titles
+vgrep='"videoRenderer":{"videoId":"\K.{11}".+?"text":".+?[^\\](?=")'
+pgrep='"playlistRenderer":{"playlistId":"\K.{34}?","title":{"simpleText":".+?[^"](?=")'
+
+# Extract results into two variables
+videoids=$(echo "$response" | grep -oP "$vgrep" | sed 's|\\"|“|g' | awk -F\" '{ print $1 "###" $NF }')
+playlistids=$(echo "$response" | grep -oP "$pgrep" | sed 's|\\"|“|g' | awk -F\" '{ print $1 "###(playlist) " $NF }')
+
+# Combine results
+ids=""
+[ -n "$playlistids" ] && ids="$playlistids\n"
+[ -n "$videoids" ] && ids="$ids$videoids"
+
+# URL prefixes
+videolink="https://youtu.be/"
+playlink="https://youtube.com/playlist?list="
+
+# Prompt results in wofi and play the selected video or playlist
+    # Create a mapping of titles to IDs
+    titles=$(echo -e "$ids" | awk -F"###" '{ print $2 }')
+    selection=$(echo -e "$titles\nexit\nNew Search" | wofi --dmenu -p "Select Video:")
+
+    # Exit if Escape is pressed (empty selection) or "exit" is selected
+    if [ -z "$selection" ] || [ "$selection" == "exit" ]; then
+        echo "Exiting..."
+        exit 0
+    elif [ "$selection" == "New Search" ]; then
+    continue
+fi
+
+    # Get the corresponding ID for the selected title
+    id=$(echo -e "$ids" | grep "###$selection$" | awk -F"###" '{ print $1 }')
+
+    # Handle video or playlist
+    if [[ "$id" =~ ^.{11}$ ]]; then
+        echo "Playing video..."
+        mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best" "$videolink$id"
+    elif [[ "$id" =~ ^.{34}$ ]]; then
+        echo "Playing playlist..."
+        mpv --ytdl-format="bestvideo[height<=480]+bestaudio/best" "$playlink$id"
+    else
+        echo "Invalid selection."
+    fi
+done
