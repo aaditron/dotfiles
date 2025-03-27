@@ -1,5 +1,0 @@
-xkb_symbols "custom" {
-   include "pc(pc105)" 
-   key <CAPS> { [ Hyper_L ] };
-   modifier_map Mod3 { Hyper_L };
-};
