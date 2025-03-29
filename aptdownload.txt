@@ -19,3 +19,4 @@ slurp
 i3ipc(python3)
 wl-clipboard
 wlogout
+changed 3 to 1 in /etc/NetworkManager/powersave
