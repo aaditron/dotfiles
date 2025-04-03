@@ -26,25 +26,25 @@ button:focus, button:active, button:hover {
 }
 
 #lock {
-    background-image: image(url("/usr/share/wlogout/assets/lock.svg"));
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
 }
 
 #logout {
-    background-image: image(url("/usr/share/wlogout/assets/logout.svg"));
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
 }
 
 #suspend {
-    background-image: image(url("/usr/share/wlogout/assets/suspend.svg"));
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
 }
 
 #hibernate {
-    background-image: image(url("/usr/share/wlogout/assets/hibernate.svg"));
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
 }
 
 #shutdown {
-    background-image: image(url("/usr/share/wlogout/assets/shutdown.svg"));
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
 }
 
 #reboot {
-    background-image: image(url("/usr/share/wlogout/assets/reboot.svg"));
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
 }

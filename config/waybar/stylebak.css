@@ -10,14 +10,15 @@ icons line up nicely.  Might clean it up in the future but it works for now.*/
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Roboto, Helvetica, Arial, "Font Awesome 5 Free";
+    font-family: Roboto, Helvetica, Arial, "Font Awesome 6 Free";
     font-size: 14px;
     font-weight: bold;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.6);
+    /*background-color: rgba(43, 48, 59, 0.6);*/
+    background-color: rgba(18,21,31,0.5);
     border-radius: 0;
     border-bottom: 0px solid rgba(100, 114, 125, 0.5);
     color: #ffffff;
@@ -38,8 +39,8 @@ window#waybar.solo {
 
 #workspaces button {
     padding: 0 4px;
-    border-radius: 2px;
-    background-color: transparent;
+    border-radius: 0px 0px 2px 2px;
+    background-color: #1a1d2b;
     /* padding: 4px; */
     color: #ffffff;
     /* Use box-shadow instead of border so the text isn't offset */
@@ -54,7 +55,7 @@ window#waybar.solo {
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
+    background-color: #12151f;
     box-shadow: inset 0 -2px #ffffff;
 }
 
@@ -93,7 +94,8 @@ window#modules-right {
     color: #ffffff;
     border-radius: 0;
     padding-top: 4px;
-    background-color: @trayc;
+    /*background-color: @trayc;*/
+    background-color: #12151f;
     /* box-shadow: inset 0 -1px #af8e1d, inset 0 1px #af8e1d; */
 }
 
@@ -127,23 +129,24 @@ label:focus {
   padding-left: 8px;
   font-size: 18px;
   margin: 0;
+  background-color: #1a1d2b;
 }
 
 #custom-firefox {
   color: #1e83fa;
   padding-left: 8px;
-  background-color: rgba(50, 50, 50, 0.8);
+  /*background-color: rgba(50, 50, 50, 0.8);*/
 }
 
 
 #custom-fileman {
   color: #fa881e;
-  background-color: rgba(50, 50, 50, 0.8);
+  /*background-color: rgba(50, 50, 50, 0.8);*/
 }
 
 #custom-vm {
   color: #1efaed;
-  background-color: rgba(50, 50, 50, 0.8);
+  /*background-color: rgba(50, 50, 50, 0.8);*/
 }
 
 #custom-spotifyapp {
@@ -162,7 +165,7 @@ label:focus {
   padding-right: 1px;
   font-size: 14px;
   margin: 0px;
-  background-color: @trayc;
+  background-color: #12151f;
   border-bottom: 2px solid rgb(252, 15, 15);
 }
 
@@ -181,7 +184,7 @@ label:focus {
 
 
 #custom-rightend {
-  background-color:rgba(50, 50, 50, 0.8);
+  background-color:#1a1d2b;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
 }
@@ -235,7 +238,7 @@ label:focus {
 
 
 #clock {
-    background-color: @trayc;
+    background-color: #12151f;
     font-size: 18px;
     padding-left: 14px;
     padding-right: 10px;

@@ -10,7 +10,7 @@ icons line up nicely.  Might clean it up in the future but it works for now.*/
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Roboto, Helvetica, Arial, "Font Awesome 6 Free";
+    font-family: "CaksaydiaCove Nerd Font", Roboto, Helvetica, Arial, "Font Awesome 6 Free";
     font-size: 14px;
     font-weight: bold;
     min-height: 0;

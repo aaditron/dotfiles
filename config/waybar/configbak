@@ -94,7 +94,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click":"pulseaudio set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle",
+        "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "pavucontrol"
     }
 

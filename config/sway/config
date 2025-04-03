@@ -3,7 +3,9 @@ set $mod Mod4
 set $term foot
 set $menu wofi --show drun
 set $menu2 wofi --show run
-set $chromium chromium --ozone-platform=wayland
+#set $chromium chromium --ozone-platform=wayland
+set $chromium qutebrowser
+#set $lock swaylock --indicator
 set $lock swaylock
 set $background /home/aadit/Wallpapers/purple_sand.png 
 
@@ -64,7 +66,7 @@ exec autotiling --limit 2
 # Input configuration
 input "type:keyboard" {
     xkb_layout "gb,us"
-    xkb_variant nodeadkeys
+    #xkb_variant nodeadkeys
 #    xkb_options grp:shifts_toggle,caps:ctrl_modifier
     xkb_options grp:shifts_toggle,caps:escape
 }
@@ -112,9 +114,9 @@ bindsym $mod+o exec killall -SIGUSR1 waybar
 #bindsym Control+Shift+Space exec makoctl dismiss --all
 
 # Multimedia
-bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
-bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
-bindsym --locked XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
+bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
@@ -297,7 +299,7 @@ set $gnome-schema org.gnome.desktop.interface
 #}
 
 #pavucontrol pip
-for_window [app_id="pavucontrol"] floating enable; resize set 500 500
+for_window [app_id="pavucontrol"] floating enable, resize set 500 500
 for_window [window_role="pop-up"] floating enable
 
 #pip visibility
@@ -313,7 +315,8 @@ bindsym Mod4+Button2 resize
 # Browser picture-in-picture mode
 for_window [title="Picture in picture"] \
     floating enable, move position 901 550, sticky enable
-for_window [app_id="scrcpy"] floating enable
+#for_window [app_id="scrcpy"] floating enable
+for_window [class="scrcpy"] floating enable
 #, resize set width 400  height 225
 #, move position 859 526
 include ~/.config/sway/$(hostname)/*
