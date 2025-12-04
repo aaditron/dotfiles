@@ -1,0 +1,27 @@
+{
+	"window_has_frame": true,
+	"release_channel": "latest",
+	"window_window_bar_style": "linux",
+	"window_minimize_to_tray": false,
+	"bounds": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 1000
+	},
+	"maximized": true,
+	"fullscreen": false,
+	"window_enable_tray": false,
+	"window_start_minimized": false,
+	"window_exit_to_tray": false,
+	"server": {
+		"t9azc_Cno_41sYeqLFeJM": "763131bce5618805657598f78240940352c019"
+	},
+	"disable_auto_updates": true,
+	"lyrics": [
+		"lrclib.net"
+	],
+	"theme": "system",
+	"global_media_hotkeys": false,
+	"window_prevent_sleep_on_playback": true
+}

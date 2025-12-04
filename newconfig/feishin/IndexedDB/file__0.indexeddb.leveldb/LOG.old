@@ -1,0 +1,6 @@
+2025/11/29-13:36:01.139 330c3 Reusing MANIFEST /home/aadit/.config/feishin/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2025/11/29-13:36:01.140 330c3 Recovering log #121
+2025/11/29-13:36:01.148 330c3 Reusing old log /home/aadit/.config/feishin/IndexedDB/file__0.indexeddb.leveldb/000121.log 
+2025/11/29-13:36:02.721 330dc Level-0 table #126: started
+2025/11/29-13:36:02.738 330dc Level-0 table #126: 1912469 bytes OK
+2025/11/29-13:36:02.742 330dc Delete type=0 #121
